@@ -2,8 +2,8 @@ return function (t)
 local r
  if t.run then 
   r=dofile("LCD_1602_I2C.lua")({init={sda=t.sda,scl=t.scl}})
-  dofile("LCD_1602_I2C.lua")({lcd={str="DoT LCD WS1602",line=1,col=0}})
-  dofile("LCD_1602_I2C.lua")({lcd={str="i2c bus",line=2,col=1}})
+  dofile("LCD_1602_I2C.lua")({lcd={str="LCD WH1602 i2c",line=1,col=0}})
+  dofile("LCD_1602_I2C.lua")({lcd={str=" codedevice.ru",line=2,col=1}})
  else
   print("Plugin not started")
  end

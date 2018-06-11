@@ -3,7 +3,6 @@
 The plugin LCD WH1602 (I2C PCF8574) for [DoT](https://github.com/bondrogeen/DoT)
 
 
-
 or
 
 ```lua
