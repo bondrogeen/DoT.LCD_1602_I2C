@@ -9,7 +9,9 @@
  <link rel="stylesheet" href="style.css.gz" />
  <style>
 
-
+  a {
+   color: blue;
+  }
  </style>
 </head>
 
@@ -44,10 +46,12 @@
  </div>
  <div class="cont">
   <div class="row">
-   <div class="s12 m2 l2">
-
-   </div>
+   <div class="s12 m2 l2"></div>
    <div class="s12 m10 l-9 ">
+    <div id="alert" class="alert danger hide">
+     <span class="close" onclick="this.parentElement.style.display='none';">×</span>
+     <strong>Info! </strong> Plagin not enabled or wrong <a href="http://192.168.1.49/plugin.html?plugin=LCD_1602_I2C">settings</a>.
+    </div>
     <h1>WH1602</h1>
     <div class="row">
      <div class="l4 m6 s12">
@@ -92,61 +96,58 @@
   }
 
 
-  function line1(){
+  function line1() {
    var line1 = document.getElementById("line1").value;
-   send("LCD_1602_I2C.lua",{lcd:{str:line1,line:1,col:0}}, function(res){
-    if(res){
-       console.log(res);
-       }
-   })
-  }
-  function line2(){
-   var line2 = document.getElementById("line2").value;
-   send("LCD_1602_I2C.lua",{lcd:{str:line2,line:2,col:0}}, function(res){
-    if(res){
-       console.log(res);
-       }
-   })
-  }
-  function print(){
-   line1();
-   line2();
-  }
-  function cls(){
-   send("LCD_1602_I2C.lua",{cls:true}, function(res){
-    if(res){
-       console.log(res);
-       }
+   send("LCD_1602_I2C.lua", {
+    lcd: {
+     str: line1,
+     line: 1,
+     col: 0
+    }
+   }, function(res) {
+    console.log(res);
+    if (res) {
+     if (res === "false") {
+      document.getElementById("alert").classList.remove("hide");
+     }
+    }
    })
   }
 
-  function scan() {
-   send("DS18B20.lua", {
-    get: "all"
+  function line2() {
+   var line2 = document.getElementById("line2").value;
+   send("LCD_1602_I2C.lua", {
+    lcd: {
+     str: line2,
+     line: 2,
+     col: 0
+    }
    }, function(res) {
+    console.log(res);
     if (res) {
-     console.log(res);
-     if (res !== "false" || res !== "error") {
-      try {
-       res = JSON.parse(res);
-      } catch (err) {
-       console.log(err);
-       return;
-      }
-      var key = document.getElementById("list");
-      key.innerHTML = "";
-      for (var i = 0, ln = res.length; i < ln; i++) {
-       if (res[i] !== null) {
-        var li = document.createElement('li');
-        li.id = res[i];
-        li.className = 'lg-i';
-        li.innerHTML = (i + 1) + ' )  <b>' + res[i] + '</b> °C';
-        key.appendChild(li);
-       }
-      }
+     if (res === "false") {
+      document.getElementById("alert").classList.remove("hide");
      }
     }
-   });
+   })
+  }
+
+  function print() {
+   line1();
+   line2();
+  }
+
+  function cls() {
+   send("LCD_1602_I2C.lua", {
+    cls: true
+   }, function(res) {
+    console.log(res);
+    if (res) {
+     if (res === "false") {
+      document.getElementById("alert").classList.remove("hide");
+     }
+    }
+   })
   }
 
  </script>
