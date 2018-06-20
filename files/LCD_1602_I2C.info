@@ -2,9 +2,9 @@
  "name": "LCD_1602_I2C",
  "type": "module",
  "description": "The LCD display module WH1602 connected via i2c bus (PCF8574).",
- "version": "0.0.1",
+ "version": "0.0.2",
  "homepage": "",
- "files": ["LCD_1602_I2C.init", "LCD_1602_I2C.info", "LCD_1602_I2C.lua", "LCD_1602_I2C.run", "LCD_1602_I2C.html"],
+ "files": ["LCD_1602_I2C.init", "LCD_1602_I2C.info", "LCD_1602_I2C.lua", "LCD_1602_I2C.run", "LCD_1602_I2C.mqtt", "LCD_1602_I2C.html"],
  "page": "LCD_1602_I2C.html",
  "img": "https://raw.githubusercontent.com/bondrogeen/LCD_1602_I2C/master/doc/logo.jpg",
  "repository": {

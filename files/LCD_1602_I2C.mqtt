@@ -4,6 +4,7 @@ local r
  if t then 
    _M.pub("comm/LCD_1602_I2C/line1","")
    _M.pub("comm/LCD_1602_I2C/line2","")
+   _M.pub("comm/LCD_1602_I2C/cls","")
  end
  return r
 end

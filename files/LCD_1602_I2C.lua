@@ -46,6 +46,8 @@ if t.init then r=init(t.init)end
   if t.home then r=home()end
   if t.cursor then r=cursor(t.cursor)end
   if t.lcd then r=lcd(t.lcd)end
+  if t.line1 then r=lcd({str=t.line1,line=1,col=0})end
+  if t.line2 then r=lcd({str=t.line2,line=2,col=0})end
  end
 return r
 end
