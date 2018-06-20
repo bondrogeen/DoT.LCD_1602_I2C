@@ -23,5 +23,7 @@ dofile("LCD_1602_I2C.lua")({home=true}) --set the cursor to the beginning of the
 ```
 ## Changelog
 
+### 0.0.2 (2018-06-20)
+* (bondrogeen) minor fix.
 ### 0.0.1 (2018-06-7)
 * (bondrogeen) init.
