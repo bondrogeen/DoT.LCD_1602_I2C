@@ -1,7 +1,8 @@
 return function (t)
 local r
- if t.run then 
-  dofile("LCD_1602_I2C.lua")({init = {sda = t.sda, scl = t.scl, dev = 0x3F }})
+ if t.run and tonumber(t.id, 16) then 
+ 
+  dofile("LCD_1602_I2C.lua")({init = {sda = t.sda, scl = t.scl, dev = t.id }})
   dofile("LCD_1602_I2C.lua")({lcd = {str = "LCD WH1602 i2c", line = 1, col = 0}})
   dofile("LCD_1602_I2C.lua")({lcd = {str = " codedevice.ru", line = 2 ,col = 1}})
  end

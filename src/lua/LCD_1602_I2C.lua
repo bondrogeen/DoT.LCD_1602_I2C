@@ -1,4 +1,3 @@
-
 local id = 0
 local bl = 0x08 -- back light on
 
@@ -20,7 +19,7 @@ local function init(t)
   end
 
   _WH1602 = {}
-  _WH1602.dev = t.dev or 0x27
+  _WH1602.dev = tonumber(t.dev, 16) or 0x27
   send({0x30})
   tmr.delay(4100)
   send({0x30})

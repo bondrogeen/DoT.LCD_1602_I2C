@@ -7,7 +7,7 @@ or
 
 ```lua
 
-dofile("LCD_1602_I2C.lua")({init = {sda = 4, scl = 3}}) --initialization i2c and WH1601
+dofile("LCD_1602_I2C.lua")({init = {sda = 4, scl = 3, dev = "0x3F"}}) --initialization i2c and WH1601
 
 dofile("LCD_1602_I2C.lua")({lcd = {str = "Test lcd Lin1 1", line = 1, col = 0}}) --print on the first line 
 
@@ -23,6 +23,8 @@ dofile("LCD_1602_I2C.lua")({home = true}) --set the cursor to the beginning of t
 ```
 ## Changelog
 
+## 0.1.0 (2019-06-3)
+* (bondrogeen) fix for DoT 2.0
 ### 0.0.2 (2018-06-20)
 * (bondrogeen) minor fix.
 ### 0.0.1 (2018-06-7)
